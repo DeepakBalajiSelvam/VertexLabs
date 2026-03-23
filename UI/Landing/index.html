@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VertexLabs — AI-native solutions at the edge of possibility. Coming soon." />
+  <title>VertexLabs — Coming Soon</title>
+  <style>
+    :root {
+      --bg: #050810;
+      --surface: #0d1117;
+      --border: rgba(99, 179, 237, 0.12);
+      --accent: #63b3ed;
+      --accent-dim: rgba(99, 179, 237, 0.15);
+      --accent-glow: rgba(99, 179, 237, 0.35);
+      --text-primary: #e2e8f0;
+      --text-secondary: #718096;
+      --text-muted: #4a5568;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Background grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(99, 179, 237, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 179, 237, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Radial glow center */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(99, 179, 237, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      max-width: 680px;
+      width: 100%;
+      gap: 2rem;
+    }
+
+    /* Logo / wordmark */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-mark {
+      width: 44px;
+      height: 44px;
+      position: relative;
+    }
+
+    .logo-mark svg {
+      width: 44px;
+      height: 44px;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .logo-text span {
+      color: var(--accent);
+    }
+
+    /* Status badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--accent-dim);
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Heading */
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
+
+    h1 .highlight {
+      background: linear-gradient(135deg, var(--accent) 0%, #9f7aea 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Tagline */
+    .tagline {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      max-width: 480px;
+    }
+
+    /* Divider */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    /* Products preview */
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      width: 100%;
+    }
+
+    .product-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.4rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      color: var(--text-secondary);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .product-chip:hover {
+      border-color: var(--accent-glow);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    .product-chip-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--text-muted);
+    }
+
+    .product-chip:hover .product-chip-dot {
+      background: var(--accent);
+    }
+
+    /* Footer note */
+    footer {
+      position: relative;
+      z-index: 1;
+      margin-top: 4rem;
+      padding-bottom: 2rem;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .tagline {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+
+    <!-- Logo -->
+    <div class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="22,4 40,14 40,34 22,44 4,34 4,14" stroke="#63b3ed" stroke-width="1.5" fill="rgba(99,179,237,0.06)" />
+          <polygon points="22,10 34,17 34,31 22,38 10,31 10,17" stroke="#63b3ed" stroke-width="1" fill="rgba(99,179,237,0.08)" opacity="0.6" />
+          <circle cx="22" cy="22" r="4" fill="#63b3ed" opacity="0.9" />
+          <line x1="22" y1="4" x2="22" y2="10" stroke="#63b3ed" stroke-width="1" opacity="0.5" />
+          <line x1="40" y1="14" x2="34" y2="17" stroke="#63b3ed" stroke-width="1" opacity="0.5" />
+          <line x1="40" y1="34" x2="34" y2="31" stroke="#63b3ed" stroke-width="1" opacity="0.5" />
+          <line x1="22" y1="44" x2="22" y2="38" stroke="#63b3ed" stroke-width="1" opacity="0.5" />
+          <line x1="4" y1="34" x2="10" y2="31" stroke="#63b3ed" stroke-width="1" opacity="0.5" />
+          <line x1="4" y1="14" x2="10" y2="17" stroke="#63b3ed" stroke-width="1" opacity="0.5" />
+        </svg>
+      </div>
+      <span class="logo-text">Vertex<span>Labs</span></span>
+    </div>
+
+    <!-- Status -->
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Building in Progress
+    </div>
+
+    <!-- Headline -->
+    <h1>Intelligence at the<br /><span class="highlight">Edge of Possibility</span></h1>
+
+    <!-- Tagline -->
+    <p class="tagline">
+      We build AI-native solutions that integrate with your existing ecosystem —
+      intelligent agents, ML automation, and open source innovation, shipped to production.
+    </p>
+
+    <div class="divider"></div>
+
+    <!-- Products -->
+    <div class="products">
+      <div class="product-chip">
+        <span class="product-chip-dot"></span>
+        DataSphere
+      </div>
+      <div class="product-chip">
+        <span class="product-chip-dot"></span>
+        FinX
+      </div>
+      <div class="product-chip">
+        <span class="product-chip-dot"></span>
+        More coming soon
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    &copy; 2025 VertexLabs &mdash;
+    <a href="mailto:hello@vertexlabs.io">hello@vertexlabs.io</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Markdown - kept local only
+*.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+
+# Dependencies
+node_modules/
+dist/
+.cache/
