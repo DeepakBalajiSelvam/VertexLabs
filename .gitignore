@@ -1,5 +1,5 @@
-# Markdown - kept local only
-*.md
+# Strategic doc - kept local only
+CLAUDE.md
 
 # OS
 .DS_Store
