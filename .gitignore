@@ -1,5 +1,18 @@
-# Strategic doc - kept local only
-CLAUDE.md
+# Docs - kept local only
+*.md
+
+# Logs
+*.log
+logs/
+
+# Screenshots and images
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg
+analysis/
 
 # OS
 .DS_Store
